@@ -1,15 +1,15 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import styles from './WaiterOrder.module.scss';
+import PropTypes from 'prop-types';
+import styles from './Waiter.module.scss';
 
-const WaiterOrder = () => (
+const WaiterOrderEdit = props => (
   <div className={styles.component}>
-
+    <h2>{props.match.params.id}</h2>
   </div>
 );
 
-// Login.PropTypes = {
+WaiterOrderEdit.propTypes = {
+  match: PropTypes.any,
+};
 
-// };
-
-export default WaiterOrder;
+export default WaiterOrderEdit;

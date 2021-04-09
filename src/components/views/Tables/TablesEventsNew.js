@@ -4,12 +4,8 @@ import styles from './TablesEventsNew.module.scss';
 
 const TablesEventsNew = () => (
   <div className={styles.component}>
-
+    <h2>Tables event new</h2>
   </div>
 );
-
-// Login.PropTypes = {
-
-// };
 
 export default TablesEventsNew;

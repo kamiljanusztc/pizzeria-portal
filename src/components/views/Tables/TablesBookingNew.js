@@ -4,12 +4,8 @@ import styles from './TablesBookingNew.module.scss';
 
 const TablesBookingNew = () => (
   <div className={styles.component}>
-
+    <h2>Tables booking new</h2>
   </div>
 );
-
-// Login.PropTypes = {
-
-// };
 
 export default TablesBookingNew;

@@ -4,12 +4,8 @@ import styles from './WaiterOrderNew.module.scss';
 
 const WaiterOrderNew = () => (
   <div className={styles.component}>
-
+    <h2>Witer order new</h2>
   </div>
 );
-
-// Login.PropTypes = {
-
-// };
 
 export default WaiterOrderNew;

@@ -15,7 +15,7 @@ import Kitchen from './components/views/Kitchen/Kitchen';
 
 function App() {
   return (
-    <BrowserRouter basename={'/panel'}>
+    <BrowserRouter>
       <MainLayout>
         <Switch>
           <Route exact path={`${process.env.PUBLIC_URL}/`} component={Homepage} />
