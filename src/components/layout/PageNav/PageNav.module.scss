@@ -2,9 +2,9 @@
 
 .component {
   padding: $base-size;
+  margin-left: auto;
+}
 
-  a{
-    margin: 20px;
-    text-decoration: none;
-  }
+.link {
+  color: inherit;
 }

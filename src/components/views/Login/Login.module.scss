@@ -2,4 +2,10 @@
 
 .component {
   padding: $base-size;
+
+  .loginWrapper {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+  }
 }

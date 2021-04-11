@@ -3,8 +3,11 @@
 .component {
   padding: $base-size;
 
+  .dateContainer {
+    padding: 15px;
+  }
+
   a{
-    margin: 20px;
     text-decoration: none;
   }
 }
