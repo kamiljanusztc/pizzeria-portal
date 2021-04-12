@@ -10,11 +10,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 const demoContent = [
-  { id: '1', table: 'Table 1', Products: 'Zia Giulias Breakfast, Nonna Albas Pizza', order: 123 },
-  { id: '2', table: 'Table 1', Products: 'Zia Giulias Breakfast, Nonna Albas Pizza', order: 123 },
-  { id: '3', table: 'Table 1', Products: 'Zia Giulias Breakfast, Nonna Albas Pizza', order: 123 },
+  { id: '1', status: 'done', table: 'Table 1', Products: 'Zia Giulias Breakfast, Nonna Albas Pizza', order: 123 },
+  { id: '2', status: 'ordered', table: 'Table 1', Products: 'Zia Giulias Breakfast, Nonna Albas Pizza', order: 123 },
+  { id: '3', status: 'done', table: 'Table 1', Products: 'Zia Giulias Breakfast, Nonna Albas Pizza', order: 123 },
 ];
-
 
 const Kitchen = () => {
   const [state, setState] = React.useState({
@@ -22,6 +21,45 @@ const Kitchen = () => {
   });
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
+  const renderActions = status => {
+    switch (status) {
+      case 'done':
+        return (
+          <>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={state.checkedB}
+                  onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="Done"
+            />
+          </>
+        );
+      case 'ordered':
+        return (
+          <>
+            <FormControlLabel
+              control={
+                <Checkbox
+
+                  onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="Done"
+            />
+          </>
+        );
+      default:
+        return null;
+    }
   };
 
   return (
@@ -48,17 +86,7 @@ const Kitchen = () => {
                 {row.Products}
               </TableCell>
               <TableCell>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={state.checkedB}
-                      onChange={handleChange}
-                      name="checkedB"
-                      color="primary"
-                    />
-                  }
-                  label="Done"
-                />
+                {renderActions(row.status)}
               </TableCell>
             </TableRow>
           ))}

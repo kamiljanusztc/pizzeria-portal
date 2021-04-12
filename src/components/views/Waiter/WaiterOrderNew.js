@@ -8,12 +8,13 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
 const demoContent = [
-  { id: '1', status: 'free', order: null },
+  { id: '1', status: 'free', products: 'Zia Giulias Breakfast', options: 'x2 medium', cost: '200', order: null },
+  { id: '1', status: 'free', products: 'Zia Giulias Breakfast', options: 'x2 medium', cost: '200', order: null },
+  { id: '1', status: 'free', products: 'Zia Giulias Breakfast', options: 'x2 medium', cost: '200', order: null },
 ];
 
 const WaiterOrderNew = props => {
@@ -29,19 +30,19 @@ const WaiterOrderNew = props => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Number</TableCell>
+              <TableCell>Order number</TableCell>
               <TableCell>Table</TableCell>
-              <TableCell>Date start</TableCell>
-              <TableCell>Date stop</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Phone</TableCell>
+              <TableCell>Products</TableCell>
+              <TableCell>Options</TableCell>
+              <TableCell>Order</TableCell>
+              <TableCell>Cost</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {demoContent.map(row => (
               <TableRow key={row.id}>
                 <TableCell component="th" scope="row">
-                  new
+                  {row.id}
                 </TableCell>
                 <TableCell component="th" scope="row">
                   <Select
@@ -59,36 +60,16 @@ const WaiterOrderNew = props => {
                   </Select>
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  <form className={styles.dateContainer} noValidate>
-                    <TextField
-                      id="datetime-local"
-                      type="datetime-local"
-                      defaultValue="2021-05-24T14:00"
-                      className={styles.textField}
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                    />
-                  </form>
+                  {row.products}
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  <form className={styles.dateContainer} noValidate>
-                    <TextField
-                      id="datetime-local"
-                      type="datetime-local"
-                      defaultValue="2021-05-24T14:30"
-                      className={styles.textField}
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                    />
-                  </form>
+                  {row.options}
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  <TextField id="standard-basic" defaultValue="Kate" />
+                  {row.products}, {row.options} = ${row.cost}
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  <TextField id="standard-basic" defaultValue="000-000-000" />
+                  $ {row.cost}
                 </TableCell>
                 <TableCell>
                   <Button className={styles.buttonSave}

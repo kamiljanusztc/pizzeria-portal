@@ -10,14 +10,11 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const demoContent = [
-  { id: '1', status: 'free', products: 'Zia Giulias Breakfast', options: 'medium', cost: '200', order: null },
+  { id: '1', status: 'free', products: 'Zia Giulias Breakfast', options: 'x2 medium', cost: '200', order: null },
+  { id: '1', status: 'free', products: 'Zia Giulias Breakfast', options: 'x2 medium', cost: '200', order: null },
+  { id: '1', status: 'free', products: 'Zia Giulias Breakfast', options: 'x2 medium', cost: '200', order: null },
 ];
 
 const WaiterOrder = props => {
@@ -69,21 +66,7 @@ const WaiterOrder = props => {
                   {row.options}
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  <Accordion>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1a-content"
-                      id="panel1a-header"
-                    >
-                      <Typography>Accordion 1</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                        sit amet blandit leo lobortis eget.
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
+                  {row.products}, {row.options} = ${row.cost}
                 </TableCell>
                 <TableCell component="th" scope="row">
                   $ {row.cost}
