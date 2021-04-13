@@ -33,48 +33,49 @@ const Login = () => {
   };
 
   return (
-
-    <Paper className={styles.component}>
-      <Grid className={styles.loginWrapper} container spacing={1} alignItems="flex-end">
-        <Grid item>
-          <AccountCircle />
+    <div className={styles.component}>
+      <Paper>
+        <Grid className={styles.loginWrapper} container spacing={1} alignItems="flex-end">
+          <Grid item>
+            <AccountCircle />
+          </Grid>
+          <Grid item>
+            <TextField id="input-with-icon-grid" label="Login" />
+          </Grid>
+          <Grid item>
+            <FormControl>
+              <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+              <Input
+                id="standard-adornment-password"
+                type={values.showPassword ? 'text' : 'password'}
+                value={values.password}
+                onChange={handleChange('password')}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+          </Grid>
+          <Grid item>
+            <Button className={styles.buttonSave}
+              variant="contained"
+              color="primary"
+              size="small"
+            >
+              Login
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item>
-          <TextField id="input-with-icon-grid" label="Login" />
-        </Grid>
-        <Grid item>
-          <FormControl>
-            <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
-            <Input
-              id="standard-adornment-password"
-              type={values.showPassword ? 'text' : 'password'}
-              value={values.password}
-              onChange={handleChange('password')}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                  >
-                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-          </FormControl>
-        </Grid>
-        <Grid item>
-          <Button className={styles.buttonSave}
-            variant="contained"
-            color="primary"
-            size="small"
-          >
-            Login
-          </Button>
-        </Grid>
-      </Grid>
-    </Paper>
+      </Paper>
+    </div>
   );
 };
 

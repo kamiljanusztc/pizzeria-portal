@@ -63,37 +63,38 @@ const Kitchen = () => {
   };
 
   return (
-    <Paper className={styles.component}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Order number</TableCell>
-            <TableCell>Table</TableCell>
-            <TableCell>Products</TableCell>
-            <TableCell>Status</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {demoContent.map(row => (
-            <TableRow key={row.id}>
-              <TableCell component="th" scope="row">
-                {row.order}
-              </TableCell>
-              <TableCell>
-                {row.table}
-              </TableCell>
-              <TableCell>
-                {row.Products}
-              </TableCell>
-              <TableCell>
-                {renderActions(row.status)}
-              </TableCell>
+    <div className={styles.component}>
+      <Paper>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Order number</TableCell>
+              <TableCell>Table</TableCell>
+              <TableCell>Products</TableCell>
+              <TableCell>Status</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
-
+          </TableHead>
+          <TableBody>
+            {demoContent.map(row => (
+              <TableRow key={row.id}>
+                <TableCell component="th" scope="row">
+                  {row.order}
+                </TableCell>
+                <TableCell>
+                  {row.table}
+                </TableCell>
+                <TableCell>
+                  {row.Products}
+                </TableCell>
+                <TableCell>
+                  {renderActions(row.status)}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Paper>
+    </div>
   );
 };
 
