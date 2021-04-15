@@ -12,12 +12,12 @@ import Button from '@material-ui/core/Button';
 class Waiter extends React.Component {
   static propTypes = {
     fetchTables: PropTypes.func,
+    updateStatus: PropTypes.func,
     loading: PropTypes.shape({
       active: PropTypes.bool,
       error: PropTypes.oneOfType([PropTypes.bool,PropTypes.string]),
     }),
-    tables: PropTypes.array,
-
+    tables: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   }
 
   componentDidMount(){

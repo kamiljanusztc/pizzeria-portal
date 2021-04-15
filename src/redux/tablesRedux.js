@@ -42,7 +42,7 @@ export const updateStatusInApi = (id, status) => {
     dispatch(updateStatus());
 
     Axios
-      .get(`${api.url}/api/${api.tables}`)
+      .get(`${api.url}/api/${api.tables}/${id}`, {status})
       .then(res => {
         dispatch(updateStatus(res.data));
       })
@@ -88,7 +88,7 @@ export default function reducer(statePart = [], action = {}) {
         ...statePart,
         loading: {
           active: false,
-          error: action.payload,
+          error: false,
         },
       };
     }
