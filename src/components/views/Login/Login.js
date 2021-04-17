@@ -35,15 +35,15 @@ const Login = () => {
   return (
     <div className={styles.component}>
       <Paper>
-        <Grid className={styles.loginWrapper} container spacing={1} alignItems="flex-end">
+        <Grid className={styles.loginWrapper} container spacing={1} alignItems="center" direction='column'>
           <Grid item>
-            <AccountCircle />
+            <AccountCircle className={styles.loginIcon} />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField className={styles.input} id="input-with-icon-grid" label="Login" />
           </Grid>
           <Grid item>
-            <TextField id="input-with-icon-grid" label="Login" />
-          </Grid>
-          <Grid item>
-            <FormControl>
+            <FormControl className={styles.input}>
               <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
               <Input
                 id="standard-adornment-password"

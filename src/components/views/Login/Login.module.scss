@@ -4,8 +4,18 @@
   padding: $base-size;
 
   .loginWrapper {
-    display: flex;
-    justify-content: center;
     padding: 40px;
+
+    .input {
+      width: 300px;
+    }
+
+    .buttonSave {
+      margin-top: 30px;
+    }
+
+    .loginIcon {
+      font-size: 35px;
+    }
   }
 }

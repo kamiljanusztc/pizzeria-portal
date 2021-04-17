@@ -21,6 +21,15 @@ export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 export const updateStatus = payload => ({ payload, type: UPDATE_STATUS});
 
+const getOrderId = (status, orderId) => {
+  if (status === 'free') {
+    return null;
+  } else if (status === 'ordered') {
+    return Math.floor(Math.random() * 100);
+  }
+  return orderId;
+};
+
 /* thunk creators */
 export const fetchFromAPI = () => {
   return (dispatch, getState) => {
@@ -39,10 +48,15 @@ export const fetchFromAPI = () => {
 
 export const updateStatusInApi = (id, status) => {
   return (dispatch, getState) => {
-    dispatch(updateStatus());
+
+    const table = getState().tables.data.find(table => table.id === id);
 
     Axios
-      .get(`${api.url}/api/${api.tables}/${id}`, {status})
+      .put(`${api.url}/api/${api.tables}/${id}`, {
+        ...table,
+        order: getOrderId(status, table.order),
+        status,
+      })
       .then(res => {
         dispatch(updateStatus(res.data));
       })
@@ -86,6 +100,12 @@ export default function reducer(statePart = [], action = {}) {
     case UPDATE_STATUS: {
       return {
         ...statePart,
+        data: statePart.data.map(table => {
+          if (table.id === action.payload.id) {
+            return action.payload;
+          }
+          return table;
+        }),
         loading: {
           active: false,
           error: false,
